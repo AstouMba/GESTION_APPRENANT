@@ -230,7 +230,7 @@ $model = [
     
     // Fonctions pour les référentiels
     'get_all_referentiels' => function () use (&$model) {
-        $data = $model['read_data']();
+        $data = $model['read_data'](); 
         return $data['referentiels'] ?? [];
     },
     
