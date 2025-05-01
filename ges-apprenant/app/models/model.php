@@ -236,7 +236,7 @@ $model = [
     
     'get_referentiel_by_id' => function ($id) use (&$model) {
         $data = $model['read_data']();
-        
+         
         // Utiliser array_filter au lieu de foreach
         $filtered_referentiels = array_filter($data['referentiels'] ?? [], function ($referentiel) use ($id) {
             return $referentiel['id'] === $id;
