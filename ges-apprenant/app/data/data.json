@@ -1,0 +1,318 @@
+{
+    "users": [
+        {
+            "id": "1",
+            "name": "Astou Mbow",
+            "email": "admin@sa.edu.sn",
+            "password": "passer123",
+            "profile": "Admin"
+        }
+    ],
+    "promotions": [
+        {
+            "id": "1",
+            "name": "Promotion 2024",
+            "status": "inactive",
+            "image": "assets\/images\/promotions\/promo.png",
+            "date_debut": "2024-01-01",
+            "date_fin": "2024-12-31",
+            "referentiels": [
+                "2",
+                "3",
+                "1",
+                "4"
+            ],
+            "apprenants": [
+                "101",
+                "102",
+                "103",
+                "104"
+            ]
+        },
+        {
+            "id": "2",
+            "name": "Promotion 2025",
+            "status": "inactive",
+            "image": "assets\/images\/promotions\/promo.png",
+            "date_debut": "2025-01-01",
+            "date_fin": "2025-12-31",
+            "referentiels": [
+                "2",
+                "3",
+                "4"
+            ],
+            "apprenants": [
+                "105",
+                "106",
+                "107",
+                "108"
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Promo 2022",
+            "status": "active",
+            "image": "assets\/images\/promotions\/promo.png",
+            "date_debut": "2022-02-01",
+            "date_fin": "2022-12-31",
+            "referentiels": {
+                "1": "3"
+            },
+            "apprenants": [
+                {
+                    "id": 3,
+                    "name": "Alice Johnson"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Promo 2021",
+            "status": "inactive",
+            "image": "assets\/images\/promotions\/promo.png",
+            "date_debut": "2021-03-01",
+            "date_fin": "2021-12-28",
+            "referentiels": [
+                "2",
+                "4",
+                "3"
+            ],
+            "apprenants": [
+                {
+                    "id": 6,
+                    "name": "David Lee"
+                },
+                {
+                    "id": 7,
+                    "name": "Emma Davis"
+                },
+                {
+                    "id": 8,
+                    "name": "Frank Miller"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Promo 2019",
+            "status": "inactive",
+            "image": "assets\/images\/promotions\/promo.png",
+            "date_debut": "2019-03-01",
+            "date_fin": "2019-12-28",
+            "referentiels": [
+                "9",
+                "10",
+                "32"
+            ],
+            "apprenants": [
+                {
+                    "id": 61,
+                    "name": "David Lee"
+                },
+                {
+                    "id": 71,
+                    "name": "Emma Davis"
+                },
+                {
+                    "id": 81,
+                    "name": "Frank Miller"
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Promo 2023",
+            "status": "inactive",
+            "image": "assets\/images\/promotions\/promo.png",
+            "date_debut": "2023-03-01",
+            "date_fin": "2023-12-28",
+            "referentiels": [
+                "20",
+                "40",
+                "30"
+            ],
+            "apprenants": [
+                {
+                    "id": 60,
+                    "name": "David Lee"
+                },
+                {
+                    "id": 79,
+                    "name": "Emma Davis"
+                },
+                {
+                    "id": 80,
+                    "name": "Frank Miller"
+                }
+            ]
+        }
+    ],
+    "referentiels": [
+        {
+            "id": "1",
+            "name": "D\u00e9veloppement Web",
+            "description": "Formation d\u00e9veloppement web",
+            "image": "assets\/images\/referentiels\/devweb.png",
+            "capacite": 30,
+            "sessions": 10,
+            "modules": [],
+            "apprenants": [
+                {
+                    "id": "101",
+                    "name": "Astou Thiam",
+                    "email": "astou.thiam@example.com",
+                    "phone": "771234567",
+                    "referentiel_id": "1"
+                },
+                {
+                    "id": "102",
+                    "name": "Famara Sow",
+                    "email": "famara.sow@example.com",
+                    "phone": "781234567",
+                    "referentiel_id": "1"
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "name": "R\u00e9f\u00e9rent Digital",
+            "description": "Couteau Suisse du num\u00e9rique",
+            "image": "assets\/images\/referentiels\/refdig.png",
+            "capacite": 30,
+            "sessions": 10,
+            "modules": [],
+            "apprenants": [
+                {
+                    "id": "103",
+                    "name": "Mamadou Diop",
+                    "email": "mamadou.diop@example.com",
+                    "phone": "701234567",
+                    "referentiel_id": "2"
+                },
+                {
+                    "id": "104",
+                    "name": "Awa Ndiaye",
+                    "email": "awa.ndiaye@example.com",
+                    "phone": "761234567",
+                    "referentiel_id": "2"
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "name": "D\u00e9veloppement Data",
+            "description": "Formation en science des donn\u00e9es",
+            "image": "assets\/images\/referentiels\/devdata.png",
+            "capacite": 30,
+            "sessions": 10,
+            "modules": []
+        },
+        {
+            "id": "4",
+            "name": "Hackeuse",
+            "description": "Formation d\u00e9di\u00e9e aux femmes",
+            "image": "assets\/images\/referentiels\/hackeuse.png",
+            "capacite": 30,
+            "sessions": 10,
+            "modules": []
+        },
+        {
+            "id": "5",
+            "name": "AWS & DevOps",
+            "description": "La science",
+            "image": "assets\/images\/referentiels\/aws.png",
+            "capacite": 30,
+            "sessions": 10,
+            "modules": [],
+            "apprenants": [
+                {
+                    "id": 33,
+                    "name": "Ndeye Thiam"
+                },
+                {
+                    "id": 73,
+                    "name": "Samara Sow"
+                },
+                {
+                    "id": 29,
+                    "name": "Jamara Sow"
+                }
+            ]
+        },
+        {
+            "id": "6",
+            "name": "Cybers\u00e9curit\u00e9",
+            "description": "La science",
+            "image": "assets\/images\/referentiels\/cybers\u00e9curity.png",
+            "capacite": 30,
+            "sessions": 10,
+            "modules": [],
+            "apprenants": []
+        }
+    ],
+    "0": {
+        "id": 4,
+        "name": "Promotion 2017",
+        "date_debut": "21\/02\/2017",
+        "date_fin": "21\/12\/2017",
+        "referentiels": [
+            "1",
+            "2",
+            "3"
+        ],
+        "image": "devdata.png"
+    },
+    "apprenants": [
+        {
+            "id": "1",
+            "nom": "Fall",
+            "prenom": "Awa",
+            "email": "fall.awa@sa.edu.sn",
+            "password": "hashed_password",
+            "matricule": "ODC-2025-0001",
+            "telephone": "771992843",
+            "photo": "assets\/images\/apprenants\/astou.jpeg",
+            "adresse": "Keur Massar, Dakar",
+            "referentiel": "D\u00e9veloppement Web",
+            "statut": "active"
+        },
+        {
+            "id": "2",
+            "nom": "Mbow",
+            "prenom": "Soxna",
+            "email": "mbow.soxna@sa.edu.sn",
+            "password": "hashed_password",
+            "matricule": "ODC-2025-0002",
+            "telephone": "781234567",
+            "photo": "assets\/images\/apprenants\/astou.jpeg",
+            "adresse": "Keur Mbaye Fall, Dakar",
+            "referentiel": "D\u00e9veloppement Data",
+            "statut": "inactive"
+        },
+        {
+            "nom": "Tall",
+            "prenom": "Astou",
+            "email": "tall.astou@sa.edu.sn",
+            "password": "$2y$10$.GgYTtICQH3ej4qBCbFgSuJSe\/4Z0BZd5HjAmFfBbUBZqbHtiuTWq",
+            "telephone": "771261122",
+            "adresse": "Castors,Dakar",
+            "referentiel": "R\u00e9f\u00e9rent Digital",
+            "statut": "active",
+            "photo": "assets\/images\/apprenants\/astou.jpeg",
+            "id": "680f60983373c",
+            "matricule": "ODC-2025-0003"
+        }
+    ],
+    "1": {
+        "id": 6,
+        "name": "Promotion 2018",
+        "date_debut": "24\/02\/2018",
+        "date_fin": "24\/12\/2018",
+        "referentiels": [
+            "1",
+            "3",
+            "4"
+        ],
+        "image": "devdata.png"
+    }
+}

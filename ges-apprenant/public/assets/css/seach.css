@@ -1,0 +1,21 @@
+.formu {    display: flex; 
+            align-items: center; 
+            gap: 10px;    
+            margin-bottom: 20px;}
+            
+          #form {    flex: 1; 
+               padding: 10px;   
+                border: 1px solid #ccc; 
+                border-radius: 5px;   
+                font-size: 16px;}
+          .search-button {    padding: 10px 20px;  
+              background-color: #1c7b1f; 
+              color: white;  
+              border: none;  
+              border-radius: 5px; 
+              cursor: pointer;  
+              font-size: 16px;}
+
+
+          .search-button:hover {  
+              background-color: #45a049;}

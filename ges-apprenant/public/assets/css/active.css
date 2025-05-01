@@ -1,0 +1,23 @@
+.active-promotions {
+    background-color: #f97316;
+    color: black;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius:  10px 10px 10px  10px;
+text-align: center;}
+
+.active-promotions h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.active-promotions ul {
+    list-style: none;
+    padding: 0;
+}
+
+.active-promotions li {
+    margin-bottom: 10px;
+    font-size: 12px;
+}

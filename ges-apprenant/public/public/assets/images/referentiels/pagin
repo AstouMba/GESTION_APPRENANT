@@ -1,0 +1,15 @@
+<!-- Pagination -->
+    <div class="pagination">
+        <?php if ($total_pages > 1): ?>
+            <?php if ($page_num > 1): ?>
+                <a href="?page=promotions&view=<?= $view ?>&page_num=<?= $page_num - 1 ?>" class="pagination-button prev">Précédent</a>
+            <?php endif; ?>
+            <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+                <a href="?page=promotions&view=<?= $view ?>&page_num=<?= $i ?>" class="pagination-button <?= $i == $page_num ? 'active' : '' ?>"><?= $i ?></a>
+            <?php endfor; ?>
+            <?php if ($page_num < $total_pages): ?>
+                <a href="?page=promotions&view=<?= $view ?>&page_num=<?= $page_num + 1 ?>" class="pagination-button next">Suivant</a>
+            <?php endif; ?>
+        <?php endif; ?>
+    </div>
+</div>
