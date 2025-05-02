@@ -19,12 +19,12 @@ $referentiel_model = [
         return !empty($filtered_referentiels) ? reset($filtered_referentiels) : null;
     },
 
-    // 'add_referentiel' => function ($referentiel_data) use (&$model) {
-    //     $data = $model['read_data']();
-    //     $referentiel_data['id'] = uniqid();
-    //     $data['referentiels'][] = $referentiel_data;
-    //     return $model['write_data']($data);
-    // },
+    'add_referentiel' => function ($referentiel_data) use (&$model) {
+        $data = $model['read_data']();
+        $referentiel_data['id'] = uniqid();
+        $data['referentiels'][] = $referentiel_data;
+        return $model['write_data']($data);
+    },
 
     'update_referentiel' => function ($id, $referentiel_data) use (&$model) {
         $data = $model['read_data']();
