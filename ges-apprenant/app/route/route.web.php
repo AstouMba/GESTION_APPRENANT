@@ -57,6 +57,7 @@ $routes = [
     'apprenants' => 'App\Controllers\list_apprenants',
     'add-apprenant' => 'App\Controllers\add_apprenant_form',
     'add-apprenant-process' => 'App\Controllers\add_apprenant_process',
+    'apprenant-details' => 'App\Controllers\show_apprenant_details',
 
     // Routes pour les téléchargements
     'download-pdf' => 'App\Controllers\download_pdf',

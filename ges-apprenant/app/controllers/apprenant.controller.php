@@ -210,3 +210,50 @@ function add_apprenant_process() {
     exit;
 }
 
+function show_apprenant_details() {
+    $json_file = __DIR__ . '/../data/data.json';
+
+    // Vérifiez si le fichier JSON existe
+    if (!file_exists($json_file)) {
+        render('admin.layout.php', 'errors/404.html.php', [
+            'message' => 'Fichier des apprenants introuvable.'
+        ]);
+        return;
+    }
+
+    // Récupérez les apprenants depuis le fichier JSON
+    $data = json_decode(file_get_contents($json_file), true);
+    $apprenants = $data['apprenants'] ?? [];
+
+    // Récupérez l'ID de l'apprenant depuis les paramètres GET
+    $apprenant_id = $_GET['id'] ?? null;
+
+    if (!$apprenant_id) {
+        render('admin.layout.php', 'errors/404.html.php', [
+            'message' => 'ID de l’apprenant manquant.'
+        ]);
+        return;
+    }
+
+    // Trouvez l'apprenant correspondant
+    $apprenant = null;
+    foreach ($apprenants as $item) {
+        if ($item['id'] == $apprenant_id) {
+            $apprenant = $item;
+            break;
+        }
+    }
+
+    if (!$apprenant) {
+        render('admin.layout.php', 'errors/404.html.php', [
+            'message' => 'Apprenant introuvable.'
+        ]);
+        return;
+    }
+
+    // Affichez la vue des détails de l'apprenant
+    render('admin.layout.php', 'apprenants/details-app.html.php', [
+        'apprenant' => $apprenant
+    ]);
+}
+
