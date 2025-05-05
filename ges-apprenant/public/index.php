@@ -10,4 +10,4 @@ error_reporting(E_ALL);
 require_once __DIR__ . '/../app/route/route.web.php';
 
 // Gérer la requête entrante
-\App\Route\handle_request();
+\App\Route\handle_request(); 
