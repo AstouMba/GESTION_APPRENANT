@@ -2,6 +2,7 @@
 
 namespace App\Route;
 
+require_once __DIR__ . '/../services/session.service.php';
 require_once __DIR__ . '/../controllers/auth.controller.php';
 require_once __DIR__ . '/../controllers/promotion.controller.php';
 require_once __DIR__ . '/../controllers/referentiel.controller.php';
@@ -29,11 +30,10 @@ $routes = [
     'add-promotion-form' => 'App\Controllers\add_promotion_form',
     'add-promotion-process' => 'App\Controllers\add_promotion_process',
     'toggle-promotion-status' => 'App\Controllers\toggle_promotion_status',
-    'promotion' => 'App\Controllers\promotion_page', // Nouvelle route
+    'promotion' => 'App\Controllers\promotion_page',
 
-    
     // Routes pour les référentiels
-    'referentiels' => 'App\Controllers\List_referentiels',
+    'referentiels' => 'App\Controllers\list_referentiels',
     'all-referentiels' => 'App\Controllers\list_all_referentiels',
     'add-referentiel' => 'App\Controllers\add_referentiel_form',
     'add-referentiel-process' => 'App\Controllers\add_referentiel_process',
@@ -64,16 +64,40 @@ $routes = [
 ];
 
 /**
- * Fonction de routage qui exécute le contrôleur correspondant à la page demandée
- *
- * @param string $page La page demandée
- * @return mixed Le résultat de la fonction contrôleur
+ * Fonction pour gérer la requête entrante
  */
-function route($page) {
-    global $routes, $model;
+function handle_request() {
+    global $routes, $session_services, $model;
 
-    // Vérifie si la route demandée existe
-    $route_exists = array_key_exists($page, $routes);
+    // Démarrer la session
+    $session_services['start_session']();
+
+    // Liste des pages qui ne nécessitent pas d'authentification
+    $public_pages = ['login', 'login-process', 'forgot-password', 'forgot-password-process', 'reset-password', 'reset-password-process'];
+
+    // Récupération de la page demandée
+    $page = isset($_GET['page']) ? $_GET['page'] : 'login';
+
+    // Journalisation de la page demandée
+    error_log("Page demandée : $page, Utilisateur connecté : " . ($session_services['is_logged_in']() ? 'Oui' : 'Non'));
+
+    // Si l'utilisateur est connecté et qu'il essaie d'accéder à la page de connexion, rediriger vers le dashboard
+    if ($session_services['is_logged_in']() && in_array($page, $public_pages)) {
+        header('Location: ?page=dashboard');
+        exit;
+    }
+
+    // Routage vers le contrôleur approprié avec `match`
+    match ($page) {
+        'promotions' => \App\Controllers\list_promotions(),
+        'add_promotion' => \App\Controllers\add_promotion(),
+        'toggle_promotion' => \App\Controllers\toggle_promotion_status(),
+        'search_referentiels' => \App\Controllers\search_referentiels(),
+        'apprenants' => \App\Controllers\list_apprenants(),
+        default => array_key_exists($page, $routes)
+            ? call_user_func($routes[$page])
+            : call_user_func($routes['404']),
+    };
 
     // Récupérer la promotion active
     $current_promotion = $model['get_current_promotion']();
@@ -84,14 +108,9 @@ function route($page) {
         $current_promotion_global = $current_promotion;
     }
 
+    // Si la page est "all-referentiels", exécuter directement la fonction correspondante
     if ($page === 'all-referentiels') {
         \App\Controllers\list_all_referentiels();
         return;
     }
-    
-    // Obtient la fonction à exécuter (route demandée ou 404 si non trouvée)
-    $controller_function = $route_exists ? $routes[$page] : $routes['404'];
-    
-    // Exécute la fonction contrôleur
-    return call_user_func($controller_function);
 }
